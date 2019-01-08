@@ -1,36 +1,35 @@
-def primeornot():
-    flg = False
-    if i == 2:
-        print('Prime',2)
-    elif i > 1:
-        for j in range(2,i):
-            if i%j == 0:
-                # print(i)
-                flg = True
-                return flg
+primenos = [2]
+print(1)
+print('Prime',2)
+def ckPrime(i):
+    prm_ini = True
+    prm_sec = True
+    for nos in primenos:
+        # print('in for', i,nos)
+        if prm_ini == True and prm_sec == True:
+            # print('in if prm')
+            while i % nos == 0:
+                prm_sec = False
+                # print('in while', nos)
                 break
-            else:
-                print('Prime',i)
-                break
-    else: print(i)
-for i in range(1,21):
-    # print(i)
-    if i%3 == 0 and i%5 ==0:
+    if prm_sec == False:
+        prm_sec = False
+        # print('NP',i)
+    else:
+        prm_sec = True
+        primenos.append(i)
+        # print('P',i)
+    return prm_sec
+    # print(primenos)
+for i in range(3,101):
+    x = ckPrime(i)
+    if x == True:
+        print("Prime",i)
+    # For FizzBuzz print
+    elif i%3 == 0 and i%5 ==0:
         print('FizzBuzz',i)
-        x = primeornot()
-        if x == False:
-            print(i)
     elif i%5 == 0:
         print('Buzz',i)
-        x = primeornot()
-        if x == False:
-            print(i)
     elif i%3 == 0:
         print('Fizz',i)
-        x = primeornot()
-        if x == False:
-            print(i)
-    else:
-        x = primeornot()
-        if x == True:
-            print(i)
+    else: print(i)
